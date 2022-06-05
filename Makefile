@@ -4,7 +4,7 @@ install:
 
 .PHONY: test
 test:
-	@pytest --cov=app --cov-report html ./tests 
+	@pytest --cov=app ./tests 
 
 .PHONY: serve
 serve:
