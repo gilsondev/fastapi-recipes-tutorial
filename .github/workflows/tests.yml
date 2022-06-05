@@ -9,27 +9,26 @@ on:
 
 jobs:
   test:
-    build:
-      runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          python-version: ["3.8", "3.9", "3.10"]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
 
-      steps:
-        - uses: actions/checkout@v3
-        - name: Set up Python ${{ matrix.python-version }}
-          uses: actions/setup-python@v3
-          with:
-            python-version: ${{ matrix.python-version }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
 
-        - name: Install dependencies
-          uses: abatilo/actions-poetry@v2.0.0
-          with:
-            poetry-version: 1.1.12
-          run: |
-            poetry config virtualenvs.create false --local
-            make install
+      - name: Install dependencies
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: 1.1.12
+        run: |
+          poetry config virtualenvs.create false --local
+          make install
 
-        - name: Run tests
-          run: |
-            make test
+      - name: Run tests
+        run: |
+          make test
