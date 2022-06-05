@@ -1,11 +1,13 @@
-from app.schemas import Recipe, RecipeSearchResults, RecipeCreate
+from app.schemas import Recipe
+from app.schemas import RecipeCreate
+from app.schemas import RecipeSearchResults
 
 
 def test_recipe_schema(recipe_raw):
     recipe = Recipe(**recipe_raw)
     fields = list(recipe.__dict__.keys())
 
-    assert ["id", "label", "source", "url"] == fields
+    assert ["label", "source", "url", "id"] == fields
     assert recipe.id == recipe_raw["id"]
     assert recipe.label == recipe_raw["label"]
     assert recipe.source == recipe_raw["source"]
@@ -26,7 +28,7 @@ def test_recipe_create_schema(recipe_raw):
     recipe = RecipeCreate(**recipe_raw)
     fields = list(recipe.__dict__.keys())
 
-    assert ["id", "label", "source", "url", "submitter_id"] == fields
+    assert ["label", "source", "url", "id", "submitter_id"] == fields
     assert recipe.id == recipe_raw["id"]
     assert recipe.label == recipe_raw["label"]
     assert recipe.source == recipe_raw["source"]

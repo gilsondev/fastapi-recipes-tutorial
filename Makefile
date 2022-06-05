@@ -20,10 +20,17 @@ mypy:
 .PHONY: lint
 lint: flake8 mypy
 
-
 .PHONY: docker-build
 docker-build:
 	@docker build . --file Dockerfile --tag fastapi-recipes-tutorial:${VERSION}
+
+.PHONY: alembic-upgrade
+alembic-upgrade:
+	@alembic upgrade head
+
+.PHONY: alembic-revision
+alembic-revision:
+	@alembic revision --autogenerate
 
 .PHONY: serve
 serve:
