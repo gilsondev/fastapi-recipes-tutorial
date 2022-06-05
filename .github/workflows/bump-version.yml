@@ -31,7 +31,10 @@ jobs:
         shell: bash
         run: |
           git fetch
-          cz bump --check-consistency --changelog --yes
+          cz bump --check-consistency --annotated-tag --yes
+
+      - name: Generate changelog
+        run: cz bump changelog
 
       - name: Push new tag back to GitHub
         shell: bash
