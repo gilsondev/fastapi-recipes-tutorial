@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "recipes-api"
+version = "0.1.0"
+description = "Ultimate tutorial about FastAPI"
+authors = ["ChristopherGS"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.78.0"
+pydantic = {version = "^1.9.1", extras = ["email"]}
+python-multipart = "^0.0.5"
+uvicorn = "^0.17.6"
+
+[tool.poetry.dev-dependencies]
+tbump = "^6.9.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
