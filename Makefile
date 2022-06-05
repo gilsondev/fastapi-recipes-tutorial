@@ -1,10 +1,12 @@
+VERSION := 2.0.0
+
 .PHONY: install
 install:
 	@poetry install
 
 .PHONY: test
 test:
-	@pytest --cov=app ./tests 
+	@pytest --cov=app ./tests
 
 
 .PHONY: flake8
@@ -17,6 +19,11 @@ mypy:
 
 .PHONY: lint
 lint: flake8 mypy
+
+
+.PHONY: docker-build
+docker-build:
+	@docker build . --file Dockerfile --tag fastapi-recipes-tutorial:${VERSION}
 
 .PHONY: serve
 serve:
