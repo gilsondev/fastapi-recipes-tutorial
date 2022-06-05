@@ -1,3 +1,20 @@
+## Unreleased
+
+### Refactor
+
+- Update changelog when run CI
+- Change bump version steps
+- Change bump version steps
+- Bypass cz bump question
+- Fetch tags before bump version
+- Create changelog
+- Include flake8 into pre-commit
+- Include flake8 into pre-commit
+
+### Feat
+
+- Offer a new recipes page
+
 ## v0.1.7 (2022-06-05)
 
 ### Refactor

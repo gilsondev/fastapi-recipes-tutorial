@@ -31,7 +31,7 @@ jobs:
         shell: bash
         run: |
           git fetch
-          cz bump --check-consistency --changelog --yes
+          cz bump --check-consistency --yes
 
       - name: Push new tag back to GitHub
         shell: bash
