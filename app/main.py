@@ -1,3 +1,5 @@
+from typing import Optional
+
 from fastapi import FastAPI, APIRouter, HTTPException
 
 from app import __version__, __project__
@@ -42,6 +44,19 @@ def fetch_recipe(*, recipe_id: int) -> dict:
         raise HTTPException(status_code=404, detail="Recipe not found")
 
     return result[0]
+
+
+@router.get("/search/", status_code=200)
+def search_recipes(
+    keyword: Optional[str] = "", max_results: Optional[int] = 10
+) -> dict:
+    """Search for recipes based on label keyword"""
+    search_recipes = (
+        lambda recipe: keyword.lower() in recipe["label"].lower()  # type: ignore
+    )  # noqa
+    results = filter(search_recipes, RECIPES)
+
+    return {"results": list(results)[:max_results]}
 
 
 app.include_router(router)
