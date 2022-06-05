@@ -1,3 +1,10 @@
+## v2.1.0 (2022-06-05)
+
+### Feat
+
+- Include models and migrations
+- Include models and migrations
+
 ## v2.0.0 (2022-06-05)
 
 ### Fix
