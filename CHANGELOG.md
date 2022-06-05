@@ -3,6 +3,7 @@
 ### Refactor
 
 - Update changelog when run CI
+- Update changelog when run CI
 - Change bump version steps
 - Change bump version steps
 - Bypass cz bump question
