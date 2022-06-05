@@ -32,5 +32,12 @@ jobs:
       - name: Install dependencies
         run: make install
 
+      - name: Verify Styleguide
+        uses: wemake-services/wemake-python-styleguide
+        with:
+          reporter: "github-pr-review"
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+
       - name: Run tests
         run: make test
