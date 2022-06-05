@@ -1,3 +1,9 @@
+## v0.1.7 (2022-06-05)
+
+### Refactor
+
+- Create changelog
+
 ## v0.1.6 (2022-06-05)
 
 ### Refactor

@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "recipes-api"
-version = "0.1.6"
+version = "0.1.7"
 description = "Ultimate tutorial about FastAPI"
 authors = ["ChristopherGS"]
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.1.6"
+version = "0.1.7"
 tag_format = "v$major.$minor.$patch$prerelease"
 version_files = [
     "pyproject.toml:version",
