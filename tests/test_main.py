@@ -2,10 +2,16 @@ import app
 
 
 def test_root_endpoint(client):
-    resp = client.get("/")
+    resp = client.get("/about")
 
     assert resp.status_code == 200
     assert resp.json() == {"msg": app.__project__, "version": app.__version__}
+
+
+def test_homepage(client):
+    resp = client.get("/")
+
+    assert resp.status_code == 200
 
 
 def test_fetch_recipe_endpoint(client, recipes, mocker):

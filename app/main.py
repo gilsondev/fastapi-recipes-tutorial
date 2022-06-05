@@ -1,9 +1,19 @@
+from typing import Any
 from typing import Optional
 
-from fastapi import FastAPI, APIRouter, HTTPException, Query
+from fastapi import APIRouter
+from fastapi import FastAPI
+from fastapi import HTTPException
+from fastapi import Query
+from fastapi import Request
+from fastapi import templating
 
-from app import __version__, __project__
-from app.schemas import Recipe, RecipeCreate, RecipeSearchResults
+from app import __project__
+from app import __version__
+from app import config
+from app.schemas import Recipe
+from app.schemas import RecipeCreate
+from app.schemas import RecipeSearchResults
 
 RECIPES = [
     {
@@ -26,14 +36,24 @@ RECIPES = [
     },
 ]
 
+
 app = FastAPI(title=__project__, openapi_url="/openapi.json")
+templates = templating.Jinja2Templates(directory=str(config.TEMPLATES))
 router = APIRouter()
 
 
-@router.get("/", status_code=200)
-def root() -> dict:
+@router.get("/about", status_code=200)
+def about() -> dict:
     """Room GET"""
     return {"msg": "Recipes API", "version": __version__}
+
+
+@router.get("/", status_code=200)
+def root(request: Request) -> Any:
+    """Homepage"""
+    return templates.TemplateResponse(
+        "index.html", {"request": request, "recipes": RECIPES}
+    )
 
 
 @router.get("/recipe/{recipe_id}", status_code=200, response_model=Recipe)
