@@ -8,6 +8,9 @@ authors = ["ChristopherGS"]
 name = "cz_conventional_commits"
 version = "0.1.7"
 tag_format = "v$major.$minor.$patch$prerelease"
+annotated_tag = true
+update_changelog_on_bump = true
+changelog_incremental = true
 version_files = [
     "pyproject.toml:version",
     "app/__init__.py:__version__"
