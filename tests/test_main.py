@@ -40,3 +40,11 @@ def test_search_recipes_endpoint_without_keyword(client, recipes, mocker):
     results = resp.json()["results"]
 
     assert len(results) == 3
+
+
+def test_create_recipe(client, recipes, recipe_raw, mocker):
+    data = {**recipe_raw, "submitter_id": 10}
+    mocker.patch("app.main.RECIPES", recipes)
+    resp = client.post("/recipe/", json=data)
+
+    assert resp.status_code == 201

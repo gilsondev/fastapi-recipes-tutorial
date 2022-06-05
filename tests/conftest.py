@@ -11,6 +11,16 @@ def client():
 
 
 @pytest.fixture
+def recipe_raw():
+    return {
+        "id": 1,
+        "label": "Chicken Vesuvio",
+        "source": "Serious Eats",
+        "url": "http://www.seriouseats.com/recipes/2011/12/chicken-vesuvio-recipe.html",
+    }
+
+
+@pytest.fixture
 def recipes():
     return [
         {

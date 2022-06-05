@@ -7,9 +7,16 @@ test:
 	@pytest --cov=app ./tests 
 
 
-.PHONY: lint
-lint:
+.PHONY: flake8
+flake8:
 	@flake8 ./app --config ./setup.cfg
+
+.PHONY: mypy
+mypy:
+	@mypy ./app
+
+.PHONY: lint
+lint: flake8 mypy
 
 .PHONY: serve
 serve:
