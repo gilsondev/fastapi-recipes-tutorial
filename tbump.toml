@@ -1,3 +1,5 @@
+github_url = "https://github.com/gilsondev/fastapi-recipes-tutorial"
+
 [version]
 current = "0.1.0"
 regex = '''
@@ -13,5 +15,9 @@ message_template = "Bump to {new_version}"
 tag_template = "v{new_version}"
 
 [[file]]
-src = "app/__init__.py"
-search = "__version__ = {current_version}"
+src = "pyproject.toml"
+search = 'version = "{current_version}"'
+
+[[file]]
+src = "./app/__init__.py"
+search = '__version__ = "{current_version}"'

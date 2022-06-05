@@ -1,9 +1,29 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException
 
 from app import __version__, __project__
 
-app = FastAPI(title=__project__, openapi_url="/openapi.json")
+RECIPES = [
+    {
+        "id": 1,
+        "label": "Chicken Vesuvio",
+        "source": "Serious Eats",
+        "url": "http://www.seriouseats.com/recipes/2011/12/chicken-vesuvio-recipe.html",
+    },
+    {
+        "id": 2,
+        "label": "Chicken Paprikash",
+        "source": "No Recipes",
+        "url": "http://norecipes.com/recipe/chicken-paprikash/",
+    },
+    {
+        "id": 3,
+        "label": "Cauliflower and Tofu Curry Recipe",
+        "source": "Serious Eats",
+        "url": "http://www.seriouseats.com/recipes/2011/02/cauliflower-and-tofu-curry-recipe.html",
+    },
+]
 
+app = FastAPI(title=__project__, openapi_url="/openapi.json")
 router = APIRouter()
 
 
@@ -11,6 +31,17 @@ router = APIRouter()
 def root() -> dict:
     """Room GET"""
     return {"msg": "Recipes API", "version": __version__}
+
+
+@router.get("/recipe/{recipe_id}", status_code=200)
+def fetch_recipe(*, recipe_id: int) -> dict:
+    """Fetch a single recipe by ID"""
+    result = [recipe for recipe in RECIPES if recipe["id"] == recipe_id]
+
+    if not result:
+        raise HTTPException(status_code=404, detail="Recipe not found")
+
+    return result[0]
 
 
 app.include_router(router)
