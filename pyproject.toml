@@ -24,6 +24,8 @@ pydantic = {version = "^1.9.1", extras = ["email"]}
 python-multipart = "^0.0.5"
 uvicorn = "^0.17.6"
 fastapi = {version = "^0.78.0", extras = ["all"]}
+SQLAlchemy = "^1.4.37"
+alembic = "^1.8.0"
 
 [tool.poetry.dev-dependencies]
 pytest-mock = "^3.7.0"

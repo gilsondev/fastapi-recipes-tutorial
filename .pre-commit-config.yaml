@@ -31,6 +31,8 @@ repos:
     hooks:
       - id: flake8
         language_version: python3
+        files: ^app/
+        args: [--config, setup.cfg]
 
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v2.27.1
