@@ -9,7 +9,7 @@ test:
 
 .PHONY: lint
 lint:
-	@flake8 ./app --config setup.cfg
+	@flake8 ./app --config ./setup.cfg
 
 .PHONY: serve
 serve:

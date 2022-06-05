@@ -15,7 +15,7 @@ fastapi = {version = "^0.78.0", extras = ["all"]}
 tbump = "^6.9.0"
 pytest-mock = "^3.7.0"
 pytest-cov = "^3.0.0"
-wemake-python-styleguide = "^0.16.1"
+flake8 = "^4.0.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
