@@ -1,4 +1,8 @@
-## Unreleased
+## v2.0.0 (2022-06-05)
+
+### Fix
+
+- Change app version
 
 ### Refactor
 
