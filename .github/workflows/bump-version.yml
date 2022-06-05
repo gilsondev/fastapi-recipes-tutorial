@@ -30,6 +30,7 @@ jobs:
       - name: Bump new version
         shell: bash
         run: |
+          git fetch
           cz bump --check-consistency --changelog
 
       - name: Push new tag back to GitHub
