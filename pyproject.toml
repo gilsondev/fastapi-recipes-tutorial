@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "recipes-api"
-version = "0.1.1"
+version = "0.1.2"
 description = "Ultimate tutorial about FastAPI"
 authors = ["ChristopherGS"]
 
