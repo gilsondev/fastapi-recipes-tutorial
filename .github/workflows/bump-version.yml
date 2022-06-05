@@ -34,7 +34,7 @@ jobs:
           cz bump --check-consistency --annotated-tag --yes
 
       - name: Generate changelog
-        run: cz bump changelog
+        run: cz changelog
 
       - name: Push new tag back to GitHub
         shell: bash
