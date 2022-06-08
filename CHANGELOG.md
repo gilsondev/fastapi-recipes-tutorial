@@ -1,3 +1,10 @@
+## v2.1.1 (2022-06-08)
+
+### Refactor
+
+- Change bumpversion pipeline
+- Change bumpversion pipeline
+
 ## v2.1.0 (2022-06-05)
 
 ### Feat
