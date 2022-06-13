@@ -10,14 +10,30 @@ class RecipeBase(BaseModel):
     url: HttpUrl
 
 
-class Recipe(RecipeBase):
+class RecipeCreate(RecipeBase):
     id: int
+    submitter_id: int
+
+
+class RecipeUpdate(RecipeBase):
+    label: str
+
+
+class RecipeInDBBase(RecipeBase):
+    id: int
+    submitter_id: int
+
+    class Config:
+        orm_mode = True
+
+
+class Recipe(RecipeInDBBase):
+    pass
 
 
 class RecipeSearchResults(BaseModel):
     results: Sequence[Recipe]
 
 
-class RecipeCreate(RecipeBase):
-    id: int
-    submitter_id: int
+class RecipeInDB(RecipeInDBBase):
+    pass
