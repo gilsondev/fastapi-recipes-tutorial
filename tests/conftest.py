@@ -7,6 +7,7 @@ from sqlalchemy.orm.session import sessionmaker
 
 from app import main
 from app import models
+from app import schemas
 
 
 @pytest.fixture(scope="session")
@@ -73,6 +74,11 @@ def recipes():
             "url": "http://www.seriouseats.com/recipes/2011/02/cauliflower-and-tofu-curry-recipe.html",
         },
     ]
+
+
+@pytest.fixture
+def recipe_schema(recipe_raw):
+    return schemas.Recipe(**recipe_raw)
 
 
 @pytest.fixture
